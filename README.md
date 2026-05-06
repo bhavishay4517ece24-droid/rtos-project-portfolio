@@ -1,186 +1,187 @@
 # RTOS Project Portfolio
 
-This repository contains a collection of embedded systems and FreeRTOS experiments implemented on the STM32F446RE development board using STM32CubeIDE and Embedded C.
+A comprehensive collection of embedded systems and Real-Time Operating System (RTOS) experiments developed using the STM32F446RE microcontroller, STM32CubeIDE, and FreeRTOS.
 
-The experiments focus on GPIO programming, timers, interrupts, sensor interfacing, PWM generation, task scheduling, inter-task communication, semaphores, and UART communication using FreeRTOS.
+This repository demonstrates practical implementation of embedded firmware concepts including GPIO control, timer peripherals, PWM generation, interrupt handling, sensor interfacing, multitasking, task synchronization, inter-task communication, and resource management in real-time systems.
+
+The projects are structured progressively, beginning with fundamental bare-metal embedded programming and advancing toward RTOS-based application development.
 
 ---
 
-# Hardware and Software Used
+# Development Environment
 
-## Hardware
-- STM32F446RE Nucleo Board
+## Hardware Platform
+- STM32F446RE Nucleo Development Board
 - HC-SR04 Ultrasonic Sensor
-- Push Button
+- Push Buttons
 - LEDs
-- Breadboard and Jumper Wires
+- Breadboard and Interfacing Components
 
-## Software
+## Software Tools
 - STM32CubeIDE
 - STM32CubeMX
-- FreeRTOS
-- Embedded C
+- FreeRTOS Kernel
+- Embedded C Language
 
 ---
 
-# Experiment 1: LED Blinking using GPIO Output
+# Experiment 1: GPIO LED Blinking
 
 ## Objective
-To configure a GPIO pin of STM32F446RE as digital output and verify LED blinking operation using software delay routines.
+Configure a GPIO pin as a digital output and implement LED blinking using software delay routines.
 
-## Concepts Covered
-- GPIO Configuration
-- Digital Output
-- Software Delay
-- Embedded C Programming
+## Key Concepts
+- GPIO Initialization
+- Digital Output Control
+- Software-Based Delay Mechanism
+- Basic Embedded Firmware Development
 
-## Outcome
-Successfully controlled onboard LED blinking using GPIO output mode.
+## Result
+Validated GPIO output functionality through periodic LED blinking.
 
 ---
 
 # Experiment 2: Push Button Interfacing
 
 ## Objective
-To interface a push button as digital input and demonstrate LED control by toggling its state on each valid button press.
+Interface a push button as a digital input and toggle an LED state upon detecting a valid button press.
 
-## Concepts Covered
+## Key Concepts
 - GPIO Input Configuration
 - Button Debouncing
-- State Toggling
-- Digital Input Handling
+- Edge Detection
+- State-Based LED Control
 
-## Outcome
-LED state changed correctly on each button press.
+## Result
+Successfully implemented reliable button-controlled LED toggling.
 
 ---
 
 # Experiment 3: HC-SR04 Ultrasonic Sensor Interfacing
 
 ## Objective
-To interface an HC-SR04 ultrasonic sensor with STM32F446RE and classify distance ranges using visual indication through LEDs.
+Interface an HC-SR04 ultrasonic sensor with STM32F446RE and classify measured distances using LED indications.
 
-## Concepts Covered
-- Sensor Interfacing
-- Timer Measurement
-- Distance Calculation
-- GPIO Output Indication
+## Key Concepts
+- Ultrasonic Sensor Interfacing
+- Timer-Based Pulse Measurement
+- Distance Computation
+- Real-Time Signal Processing
 
-## Outcome
-Measured object distance successfully and indicated distance ranges using LEDs.
+## Result
+Accurately measured object distance and displayed range classifications using LEDs.
 
 ---
 
-# Experiment 4: PWM Signal Generation
+# Experiment 4: PWM-Based LED Brightness Control
 
 ## Objective
-To generate a PWM signal using a timer on STM32F446RE and control the brightness of an onboard LED by varying the duty cycle.
+Generate a PWM signal using timer peripherals and control LED brightness by varying the duty cycle.
 
-## Concepts Covered
-- PWM Generation
+## Key Concepts
 - Timer Configuration
-- Duty Cycle Control
-- LED Brightness Control
+- Pulse Width Modulation (PWM)
+- Duty Cycle Adjustment
+- Hardware Peripheral Control
 
-## Outcome
-Successfully varied LED brightness using PWM signals.
+## Result
+Successfully achieved variable LED intensity control using PWM signals.
 
 ---
 
-# Experiment 5: Super Loop Based Embedded Program
+# Experiment 5: Super Loop Embedded Architecture
 
 ## Objective
-To implement a super loop-based embedded program that sequentially performs LED blinking, button status reading, and sensor data acquisition using simple timing counters.
+Develop a super loop-based embedded application capable of sequentially executing multiple operations such as LED blinking, button monitoring, and sensor acquisition.
 
-## Concepts Covered
-- Super Loop Architecture
-- Cooperative Scheduling
+## Key Concepts
+- Super Loop Scheduling
+- Cooperative Execution Model
 - Timing Counters
-- Embedded System Design
+- Embedded System Workflow Design
 
-## Outcome
-Implemented multiple functionalities in a sequential embedded loop structure.
-
----
-
-# Experiment 6: Basic FreeRTOS LED Task
-
-## Objective
-To develop a basic FreeRTOS-based project on STM32F446RE in STM32CubeIDE and validate LED blinking using a single RTOS task.
-
-## Concepts Covered
-- FreeRTOS Setup
-- Task Creation
-- Task Scheduling
-- RTOS Delay Functions
-
-## Outcome
-Successfully created and executed a FreeRTOS task for LED blinking.
+## Result
+Implemented a structured non-RTOS embedded application with multiple functional modules.
 
 ---
 
-# Experiment 7: Multiple FreeRTOS Tasks with Priorities
+# Experiment 6: Basic FreeRTOS Task Implementation
 
 ## Objective
-To create and execute two FreeRTOS tasks with different priorities and analyze their effect on LED blinking behavior.
+Create a basic FreeRTOS project and validate task execution through periodic LED blinking.
 
-## Concepts Covered
+## Key Concepts
+- FreeRTOS Integration
+- Task Creation and Scheduling
+- RTOS Delay APIs
+- Concurrent Execution Fundamentals
+
+## Result
+Successfully created and executed a standalone RTOS task.
+
+---
+
+# Experiment 7: Multi-Tasking with Task Priorities
+
+## Objective
+Implement multiple FreeRTOS tasks with different priority levels and analyze scheduling behavior.
+
+## Key Concepts
 - Multi-Tasking
-- Task Priority
-- Scheduler Behavior
-- Real-Time Execution
+- Priority-Based Scheduling
+- Context Switching
+- RTOS Task Management
 
-## Outcome
-Observed task execution differences based on assigned priorities.
-
----
-
-# Experiment 8: External Interrupt with Task Synchronization
-
-## Objective
-To configure an external interrupt (EXTI) for a user button and use a FreeRTOS task notification or binary semaphore to synchronize an LED control task.
-
-## Concepts Covered
-- External Interrupts
-- ISR Handling
-- Binary Semaphore
-- Task Notification
-- RTOS Synchronization
-
-## Outcome
-Successfully synchronized LED control task using external interrupt events.
+## Result
+Observed deterministic task execution behavior based on assigned priorities.
 
 ---
 
-# Experiment 9: FreeRTOS Queue Communication with UART
+# Experiment 8: External Interrupt Synchronization using Semaphore
 
 ## Objective
-To implement inter-task communication using a FreeRTOS queue where one task generates or acquires sensor data and another task transmits the received data over UART.
+Configure an external interrupt for user input and synchronize an RTOS task using task notifications or binary semaphores.
 
-## Concepts Covered
+## Key Concepts
+- External Interrupt Configuration (EXTI)
+- Interrupt Service Routines (ISR)
+- Binary Semaphores
+- Task Synchronization Mechanisms
+
+## Result
+Successfully synchronized task execution with external interrupt events.
+
+---
+
+# Experiment 9: Inter-Task Communication using FreeRTOS Queue
+
+## Objective
+Implement queue-based communication between producer and consumer tasks, with UART-based data transmission.
+
+## Key Concepts
 - FreeRTOS Queues
-- Inter-Task Communication
+- Inter-Task Communication (IPC)
 - UART Communication
-- Producer-Consumer Model
+- Producer-Consumer Architecture
 
-## Outcome
-Successfully transferred data between tasks using queues and transmitted data through UART.
+## Result
+Successfully exchanged and transmitted task data using queue mechanisms.
 
 ---
 
-# Experiment 10: Counting Semaphore Resource Sharing
+# Experiment 10: Shared Resource Management using Counting Semaphore
 
 ## Objective
-To model a limited shared resource using a FreeRTOS counting semaphore and study access control when multiple tasks request the resource simultaneously.
+Model a limited shared resource using counting semaphores and analyze controlled access among multiple tasks.
 
-## Concepts Covered
-- Counting Semaphore
-- Shared Resource Management
-- Task Synchronization
+## Key Concepts
+- Counting Semaphores
 - Resource Allocation
+- Task Synchronization
+- Concurrent Resource Access Management
 
-## Outcome
-Successfully controlled access to shared resources among multiple tasks.
+## Result
+Implemented controlled multi-task access to shared system resources.
 
 ---
 
@@ -192,11 +193,15 @@ RTOS-Project-Portfolio/
 ├── Experiment_01_GPIO_LED/
 ├── Experiment_02_Button_Interface/
 ├── Experiment_03_HCSR04/
-├── Experiment_04_PWM/
-├── Experiment_05_SuperLoop/
-├── Experiment_06_FreeRTOS_LED/
-├── Experiment_07_Task_Priority/
-├── Experiment_08_EXTI_Semaphore/
-├── Experiment_09_Queue_UART/
+├── Experiment_04_PWM_Control/
+├── Experiment_05_SuperLoop_Architecture/
+├── Experiment_06_FreeRTOS_Basic_Task/
+├── Experiment_07_Task_Priority_Scheduling/
+├── Experiment_08_EXTI_Semaphore_Synchronization/
+├── Experiment_09_Queue_UART_Communication/
 ├── Experiment_10_Counting_Semaphore/
+│
+├── Docs/
+├── Drivers/
+├── Core/
 └── README.md
